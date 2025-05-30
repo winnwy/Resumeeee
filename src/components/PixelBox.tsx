@@ -3,24 +3,11 @@ import { type ReactNode } from "react";
 interface PixelBoxProps {
   children: ReactNode;
   className?: string;
-  currentStyle: {
-    border: string;
-    shadow: string;
-  };
 }
 
-const PixelBox = ({
-  children,
-  className = "",
-  currentStyle,
-}: PixelBoxProps) => (
+const PixelBox = ({ children, className = "" }: PixelBoxProps) => (
   <div
-    className={`
-        ${currentStyle.border} border-2 p-4 mb-4
-        bg-black/30 backdrop-blur-sm
-        shadow-lg ${currentStyle.shadow}
-        ${className}
-      `}
+    className={`border-2 p-4 mb-4 bg-black/30 backdrop-blur-sm shadow-lg ${className}`}
     style={{
       imageRendering: "pixelated",
       clipPath:
