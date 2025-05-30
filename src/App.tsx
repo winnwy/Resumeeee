@@ -1,6 +1,7 @@
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import BlinkingCursor from "./components/BlinkingCursor";
 import PixelBox from "./components/PixelBox";
+import RawLink from "./components/RawLink";
 
 const themes = {
   vaporwave: {
@@ -20,9 +21,9 @@ const HomePage = () => {
       <main className="max-w-3xl m-auto flex justify-center">
         <PixelBox currentStyle={themes.vaporwave} className="w-full">
             <h1 className={`${themes.vaporwave.accent} text-4xl font-bold text-center font-mono`}>WENYING ZHOU</h1>
-            <h2 className={`${themes.vaporwave.text} text-sm  text-center font-mono p-2`}>&gt; SOFTWARE DEVELOPER.EXE <BlinkingCursor currentStyle={themes.vaporwave}/></h2>
+            <h2 className={`${themes.vaporwave.text} text-sm  text-center font-mono p-4`}>&gt; SOFTWARE DEVELOPER.EXE <BlinkingCursor currentStyle={themes.vaporwave}/></h2>
             <div className="flex justify-around">
-                <div className={`${themes.vaporwave.accent} text-xs font-mono flex items-center gap-1 `}>[<SiGithub className="size-4"/>GITHUB.COM]</div>
+                <RawLink href={"https://github.com/winnwy"} currentStyle={themes.vaporwave} className="text-xs flex items-center gap-2"><SiGithub className="size-4"/>GITHUB.COM</RawLink>
             </div>
             
 
