@@ -51,10 +51,36 @@ const projectBlotz = {
   timeStart: "2025.04",
   timeEnd: "PRESENT",
   stack: "Next.js, .NET 8, SQL Server",
-  items: [  
-    "Blotz is an intelligent, efficient, and scalable To-Do List application designed to enhance productivity, streamline task management, and support both individual and team workflows. Whether for personal planning, team collaboration, or software development task management, Blotz provides a seamless experience that helps users stay organized and focused."
+  items: [
+    "Blotz is an intelligent, efficient, and scalable To-Do List application designed to enhance productivity, streamline task management, and support both individual and team workflows. Whether for personal planning, team collaboration, or software development task management, Blotz provides a seamless experience that helps users stay organized and focused.",
   ],
+  href: "https://blotz-task-app.vercel.app/"
 };
+
+const projectHopDot = {
+  title: "HOPDOT",
+  timeStart: "2025.05",
+  timeEnd: "PRESENT",
+  stack: "Next.js, Python",
+  items: [
+    "HopDot is a web application that helps runners map custom running routes between two locations, passing through required waypoints and matching a target distance. It’s ideal for runners who want precision in training routes or want to explore new paths with specific goals in mind. This web version serves as a prototype of the core functionality before full Garmin Connect IQ integration."
+  ],
+  href: "https://github.com/winnwy/HopDot"
+}
+
+const projectTriolingo = {
+  title: "TRIOLINGO",
+  timeStart: "2025.02",
+  timeEnd: "2025.03",
+  stack: "Next.js, PostgreSQL",
+  items: [
+    "Triolingo is a language learning platform inspired by Duolingo, designed to make mastering new languages engaging and fun. It combines structured lessons with gamification elements like a hearts system, leaderboards, and quest milestones to keep learners motivated. "
+  ],
+  href: "https://triolingo-chi.vercel.app/"
+
+}
+
+
 
 const HomePage = () => {
   return (
@@ -136,11 +162,12 @@ const HomePage = () => {
             className={`${themes.vaporwave.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
             &gt; PROJECTS.EXE
-               </h2>
-            <div className="space-y-6 font-mono text-sm">
-              <ProjectBox theme={themes.vaporwave} project={projectBlotz}/>
-            </div>
-   
+          </h2>
+          <div className="space-y-6 font-mono text-sm">
+            <ProjectBox theme={themes.vaporwave} project={projectBlotz} />
+            <ProjectBox theme={themes.vaporwave} project={projectHopDot} />
+            <ProjectBox theme={themes.vaporwave} project={projectTriolingo}/>
+          </div>
         </PixelBox>
       </main>
     </div>

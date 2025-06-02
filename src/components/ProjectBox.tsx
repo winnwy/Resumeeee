@@ -1,3 +1,4 @@
+import { useState } from "react";
 import RawLink from "./RawLink";
 
 type Project = {
@@ -6,6 +7,7 @@ type Project = {
   timeEnd: string;
   stack: string;
   items: string[];
+  href: string;
 };
 
 type Theme = {
@@ -21,13 +23,18 @@ interface ProjectBoxProps {
 }
 
 const ProjectBox = ({ project, theme }: ProjectBoxProps) => {
-  const { title, timeStart, timeEnd, stack, items } = project;
+  const { title, timeStart, timeEnd, stack, items, href } = project;
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpanded = () => {
+    setIsExpanded(!isExpanded);
+  };
 
   return (
     <div className={`p-4 ${theme.border} border bg-black/30`}>
       <div className={`flex justify-between tracking-wide ${theme.accent}`}>
         <RawLink
-          href="https://blotz-task-app.vercel.app/"
+          href={href}
           className={`${theme.hover} font-bold font-mono`}
         >
           {title}
@@ -40,11 +47,33 @@ const ProjectBox = ({ project, theme }: ProjectBoxProps) => {
       <div className={`${theme.text} text-xs`}>
         {"[STACK]"} {stack}
       </div>
-      {items.map((item, idx) => (
-        <div key={idx} className={`${theme.text} text-sm pt-2`}>
-          &gt; {item}
-        </div>
-      ))}
+
+      {/* Desktop: Show all items */}
+      <div className="hidden md:block">
+        {items.map((item, idx) => (
+          <div key={idx} className={`${theme.text} text-sm pt-2`}>
+            &gt; {item}
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile: Collapsible items */}
+      <div className="block md:hidden">
+        {items.map((item, idx) => (
+          <div key={idx} className={`${theme.text} text-sm pt-2`}>
+            &gt; {isExpanded ? item : `${item.slice(0, 50)}...`}
+          </div>
+        ))}
+
+        {items.some((item) => item.length > 50) && (
+          <button
+            onClick={toggleExpanded}
+            className={`${theme.accent} ${theme.hover} text-xs mt-2 font-mono tracking-wide cursor-pointer`}
+          >
+            {isExpanded ? "[-] COLLAPSE" : "[+] EXPAND"}
+          </button>
+        )}
+      </div>
     </div>
   );
 };
