@@ -4,6 +4,7 @@ import PixelBox from "./components/PixelBox";
 import RawLink from "./components/RawLink";
 import SkillBox from "./components/SkilBox";
 import ProjectBox from "./components/ProjectBox";
+import ExperienceBox from "./components/ExperienceBox";
 
 const themes = {
   vaporwave: {
@@ -54,7 +55,7 @@ const projectBlotz = {
   items: [
     "Blotz is an intelligent, efficient, and scalable To-Do List application designed to enhance productivity, streamline task management, and support both individual and team workflows. Whether for personal planning, team collaboration, or software development task management, Blotz provides a seamless experience that helps users stay organized and focused.",
   ],
-  href: "https://blotz-task-app.vercel.app/"
+  href: "https://blotz-task-app.vercel.app/",
 };
 
 const projectHopDot = {
@@ -63,10 +64,10 @@ const projectHopDot = {
   timeEnd: "PRESENT",
   stack: "Next.js, Python",
   items: [
-    "HopDot is a web application that helps runners map custom running routes between two locations, passing through required waypoints and matching a target distance. It’s ideal for runners who want precision in training routes or want to explore new paths with specific goals in mind. This web version serves as a prototype of the core functionality before full Garmin Connect IQ integration."
+    "HopDot is a web application that helps runners map custom running routes between two locations, passing through required waypoints and matching a target distance. It’s ideal for runners who want precision in training routes or want to explore new paths with specific goals in mind. This web version serves as a prototype of the core functionality before full Garmin Connect IQ integration.",
   ],
-  href: "https://github.com/winnwy/HopDot"
-}
+  href: "https://github.com/winnwy/HopDot",
+};
 
 const projectTriolingo = {
   title: "TRIOLINGO",
@@ -74,13 +75,34 @@ const projectTriolingo = {
   timeEnd: "2025.03",
   stack: "Next.js, PostgreSQL",
   items: [
-    "Triolingo is a language learning platform inspired by Duolingo, designed to make mastering new languages engaging and fun. It combines structured lessons with gamification elements like a hearts system, leaderboards, and quest milestones to keep learners motivated. "
+    "Triolingo is a language learning platform inspired by Duolingo, designed to make mastering new languages engaging and fun. It combines structured lessons with gamification elements like a hearts system, leaderboards, and quest milestones to keep learners motivated. ",
   ],
-  href: "https://triolingo-chi.vercel.app/"
+  href: "https://triolingo-chi.vercel.app/",
+};
 
+const expBreak = {
+  title: "[VOLUNTEER] UI/UX Design",
+  timeStart: "2025.04",
+  timeEnd: "PRESENT",
+  company: "The Break Inc.",
+  items: [
+    "Collaborate with dev team to revamp UI using Figma",
+    "Contribute to frontend redevelopment using React",
+    "Participate in brainstorming and wireframing sessions"
+    ]
 }
 
-
+const expCodeCamp = {
+  title: "LEAD INSTRUCTOR/ FACILITATOR",
+  timeStart: "2025.05",
+  timeEnd: "PRESENT",
+  company: "Code Camp",
+  items: [
+    "Deliver Code Camp programs to a class of up to 25 students",
+    "Support students through project-based learning, debugging, and live feedback",
+    "Collaborate with co-instructors to adapt lesson plans for diverse learning needs",
+  ]
+}
 
 const HomePage = () => {
   return (
@@ -166,7 +188,22 @@ const HomePage = () => {
           <div className="space-y-6 font-mono text-sm">
             <ProjectBox theme={themes.vaporwave} project={projectBlotz} />
             <ProjectBox theme={themes.vaporwave} project={projectHopDot} />
-            <ProjectBox theme={themes.vaporwave} project={projectTriolingo}/>
+            <ProjectBox theme={themes.vaporwave} project={projectTriolingo} />
+          </div>
+        </PixelBox>
+
+        {/* Experience */}
+        <PixelBox
+          className={`w-full ${themes.vaporwave.border} ${themes.vaporwave.shadow}`}
+        >
+          <h2
+            className={`${themes.vaporwave.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
+          >
+            &gt; EXPERIENCE.SYS
+          </h2>
+          <div className="space-y-6 font-mono text-sm">
+            <ExperienceBox theme={themes.vaporwave} experience={expCodeCamp}/>
+            <ExperienceBox theme={themes.vaporwave} experience={expBreak} />
           </div>
         </PixelBox>
       </main>
