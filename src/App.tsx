@@ -5,6 +5,7 @@ import RawLink from "./components/RawLink";
 import SkillBox from "./components/SkilBox";
 import ProjectBox from "./components/ProjectBox";
 import ExperienceBox from "./components/ExperienceBox";
+import EducationBox from "./components/EducationBox";
 
 const themes = {
   vaporwave: {
@@ -86,12 +87,12 @@ const expBreak = {
   timeEnd: "PRESENT",
   company: "The Break Inc.",
   items: [
-    "Collaborate with dev team to revamp UI using Figma",
-    "Contribute to frontend redevelopment using React",
-    "Participate in brainstorming and wireframing sessions"
-    ],
+    "Collaborate with dev team to revamp UI using Figma.",
+    "Contribute to frontend redevelopment using React.",
+    "Participate in brainstorming and wireframing sessions.",
+  ],
   location: "Remote",
-}
+};
 
 const expCodeCamp = {
   title: "LEAD INSTRUCTOR/ FACILITATOR",
@@ -99,11 +100,29 @@ const expCodeCamp = {
   timeEnd: "PRESENT",
   company: "Code Camp",
   items: [
-    "Deliver Code Camp programs to a class of up to 25 students",
-    "Support students through project-based learning, debugging, and live feedback",
-    "Collaborate with co-instructors to adapt lesson plans for diverse learning needs",
+    "Deliver Code Camp programs to students.",
+    "Support students through project-based learning, debugging, and live feedback.",
+    "Collaborate with co-instructors to adapt lesson plans for diverse learning needs.",
   ],
-  location: "Sydney, NSW"
+  location: "Sydney, NSW",
+};
+
+const eduUNSW = {
+  university: "University of New South Wales",
+  timeStart: "2023.02",
+  timeEnd: "2025.02",
+  degreeName: "Master of IT",
+  achievement: "Graduate with Distinction",
+  location: "Sydney, NSW",
+}
+
+const eduZJNU = {
+  university:"Zhejiang Normal University",
+  timeStart: "2018.09",
+  timeEnd: "2022.06",
+  degreeName: "Bachelor of Computer Science",
+  achievement: "Graduate with Excellence",
+  location:"China",
 }
 
 const HomePage = () => {
@@ -204,13 +223,13 @@ const HomePage = () => {
             &gt; EXPERIENCE.SYS
           </h2>
           <div className="space-y-6 font-mono text-sm">
-            <ExperienceBox theme={themes.vaporwave} experience={expCodeCamp}/>
+            <ExperienceBox theme={themes.vaporwave} experience={expCodeCamp} />
             <ExperienceBox theme={themes.vaporwave} experience={expBreak} />
           </div>
         </PixelBox>
 
         {/* Education */}
-                <PixelBox
+        <PixelBox
           className={`w-full ${themes.vaporwave.border} ${themes.vaporwave.shadow}`}
         >
           <h2
@@ -218,11 +237,13 @@ const HomePage = () => {
           >
             &gt; EDUCATION.LOG
           </h2>
-
+          <div className="space-y-6 font-mono text-sm">
+            <EducationBox theme={themes.vaporwave} education={eduUNSW}/>
+            <EducationBox theme={themes.vaporwave} education={eduZJNU}/>
+          </div>
         </PixelBox>
 
         {/* Footer */}
-
       </main>
     </div>
   );

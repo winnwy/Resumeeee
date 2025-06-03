@@ -40,7 +40,7 @@ const ProjectBox = ({ project, theme }: ProjectBoxProps) => {
           {title}
         </RawLink>
 
-        <div className="hidden text-xs md:block">
+        <div className={` ${theme.text} hidden text-xs md:block`}>
           {timeStart} - {timeEnd}
         </div>
       </div>
