@@ -8,7 +8,7 @@ import ExperienceBox from "./components/ExperienceBox";
 import EducationBox from "./components/EducationBox";
 import Footer from "./components/Footer";
 import useThemeStore from "./stores/useThemeStore";
-import { Sun, Moon } from "lucide-react";
+import ThemeToggler from "./components/ThemeToggler";
 
 const summaryText =
   "Master’s graduate with 1 year of hands-on experience in full-stack development. Skilled in building scalable applications using Next.js and .NET, with a strong foundation in both frontend and backend technologies.";
@@ -104,42 +104,37 @@ const eduUNSW = {
   degreeName: "Master of IT",
   achievement: "Graduate with Distinction",
   location: "Sydney, NSW",
-}
+};
 
 const eduZJNU = {
-  university:"Zhejiang Normal University",
+  university: "Zhejiang Normal University",
   timeStart: "2018.09",
   timeEnd: "2022.06",
   degreeName: "Bachelor of Computer Science",
   achievement: "Graduate with Excellence",
-  location:"China",
-}
+  location: "China",
+};
 
 const HomePage = () => {
-  const { theme, themeName, toggleTheme} = useThemeStore();
+  const { theme } = useThemeStore();
   return (
-        <div className={`min-h-screen p-10 ${theme.bg}`}>
-          {
-            themeName === 'light'? <button onClick={toggleTheme}><Moon/></button> : <button onClick={toggleTheme} className="text-white"><Sun/></button>
-}
-
-    <main className="max-w-3xl m-auto flex flex-col items-center">
+    <div className={`min-h-screen p-10 ${theme.bg}`}>
+      <ThemeToggler className="block top-1 right-1 md:hidden" />
+      <main className="max-w-3xl m-auto flex flex-col items-center">
         {/* Header */}
-        <PixelBox
-          className={`w-full ${theme.border} ${theme.shadow}`}
-        >
+        <PixelBox className={`w-full ${theme.border} ${theme.shadow} relative`}>
+          <ThemeToggler className="hidden top-4 right-4  md:block" />
           <h1
-            className={`${theme.accent} text-4xl font-bold text-center font-mono tracking-wider`}
+            className={`${theme.accent} text-4xl font-bold text-center font-mono tracking-wider pt-2`}
           >
             WENYING ZHOU
           </h1>
           <h2
-            className={`${theme.text} text-sm  text-center font-mono p-4 tracking-wide`}
+            className={`${theme.text} text-sm text-center font-mono p-4 tracking-wide`}
           >
-            &gt; SOFTWARE DEVELOPER.EXE{" "}
-            <BlinkingCursor  theme={theme} />
+            &gt; SOFTWARE DEVELOPER.EXE <BlinkingCursor theme={theme} />
           </h2>
-          <div className="flex justify-around">
+          <div className="flex justify-around pb-2">
             <RawLink
               href={"https://github.com/winnwy"}
               className={`text-xs flex items-center gap-2 tracking-wide ${theme.accent} ${theme.hover}`}
@@ -151,25 +146,19 @@ const HomePage = () => {
         </PixelBox>
 
         {/* Summary */}
-        <PixelBox
-          className={`w-full ${theme.border} ${theme.shadow}`}
-        >
+        <PixelBox className={`w-full ${theme.border} ${theme.shadow}`}>
           <h2
             className={`${theme.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
             &gt; SYSTEM_SUMMARY.TXT
           </h2>
-          <p
-            className={`text-sm flex font-mono tracking-wide ${theme.text}`}
-          >
+          <p className={`text-sm flex font-mono tracking-wide ${theme.text}`}>
             {summaryText}
           </p>
         </PixelBox>
 
         {/* Skills */}
-        <PixelBox
-          className={`w-full ${theme.border} ${theme.shadow}`}
-        >
+        <PixelBox className={`w-full ${theme.border} ${theme.shadow}`}>
           <h2
             className={`${theme.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
@@ -185,17 +174,11 @@ const HomePage = () => {
             items={skills.frameworks}
             theme={theme}
           />
-          <SkillBox
-            title="[TOOLS]"
-            items={skills.tools}
-            theme={theme}
-          />
+          <SkillBox title="[TOOLS]" items={skills.tools} theme={theme} />
         </PixelBox>
 
         {/* Projects */}
-        <PixelBox
-          className={`w-full ${theme.border} ${theme.shadow}`}
-        >
+        <PixelBox className={`w-full ${theme.border} ${theme.shadow}`}>
           <h2
             className={`${theme.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
@@ -209,9 +192,7 @@ const HomePage = () => {
         </PixelBox>
 
         {/* Experience */}
-        <PixelBox
-          className={`w-full ${theme.border} ${theme.shadow}`}
-        >
+        <PixelBox className={`w-full ${theme.border} ${theme.shadow}`}>
           <h2
             className={`${theme.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
@@ -224,22 +205,20 @@ const HomePage = () => {
         </PixelBox>
 
         {/* Education */}
-        <PixelBox
-          className={`w-full ${theme.border} ${theme.shadow}`}
-        >
+        <PixelBox className={`w-full ${theme.border} ${theme.shadow}`}>
           <h2
             className={`${theme.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
             &gt; EDUCATION.LOG
           </h2>
           <div className="space-y-6 font-mono text-sm">
-            <EducationBox theme={theme} education={eduUNSW}/>
-            <EducationBox theme={theme} education={eduZJNU}/>
+            <EducationBox theme={theme} education={eduUNSW} />
+            <EducationBox theme={theme} education={eduZJNU} />
           </div>
         </PixelBox>
 
         {/* Footer */}
-        <Footer theme={theme}/>
+        <Footer theme={theme} />
       </main>
     </div>
   );
