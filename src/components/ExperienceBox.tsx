@@ -1,3 +1,5 @@
+import useThemeStore, { type Theme } from "../stores/useThemeStore";
+
 type Experience = {
   title: string;
   timeStart: string;
@@ -6,14 +8,6 @@ type Experience = {
   items: string[];
   location: string;
 };
-
-type Theme = {
-  border: string;
-  hover: string;
-  accent: string;
-  text: string;
-};
-
 interface ExperienceBoxProps {
   experience: Experience;
   theme: Theme;
@@ -21,14 +15,14 @@ interface ExperienceBoxProps {
 
 const ExperienceBox = (
   { experience, theme }: ExperienceBoxProps,
-  isLightTheme = true
 ) => {
+  const {themeName} = useThemeStore();
   const { title, timeStart, timeEnd, company, items, location } = experience;
 
   return (
     <div
       className={`p-4 ${theme.border} border ${
-        isLightTheme ? "bg-white/30" : "bg-black/30"
+        themeName==='light' ? "bg-white/30" : "bg-black/30"
       }`}
     >
       <div className={`flex justify-between tracking-wide ${theme.accent}`}>

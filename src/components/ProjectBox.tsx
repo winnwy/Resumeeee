@@ -1,5 +1,7 @@
 import { useState } from "react";
 import RawLink from "./RawLink";
+import type { Theme } from "../stores/useThemeStore";
+import useThemeStore from "../stores/useThemeStore";
 
 type Project = {
   title: string;
@@ -10,13 +12,6 @@ type Project = {
   href: string;
 };
 
-type Theme = {
-  border: string;
-  hover: string;
-  accent: string;
-  text: string;
-};
-
 interface ProjectBoxProps {
   project: Project;
   theme: Theme;
@@ -24,10 +19,10 @@ interface ProjectBoxProps {
 
 const ProjectBox = (
   { project, theme }: ProjectBoxProps,
-  isLightTheme = true
 ) => {
   const { title, timeStart, timeEnd, stack, items, href } = project;
   const [isExpanded, setIsExpanded] = useState(false);
+  const {themeName} = useThemeStore()
 
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded);
@@ -36,7 +31,7 @@ const ProjectBox = (
   return (
     <div
       className={`p-4 ${theme.border} border ${
-        isLightTheme ? "bg-white/30" : "bg-black/30"
+        themeName === 'light' ? "bg-white/30" : "bg-black/30"
       }`}
     >
       <div className={`flex justify-between tracking-wide ${theme.accent}`}>

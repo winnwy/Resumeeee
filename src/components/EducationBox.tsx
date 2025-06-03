@@ -1,3 +1,5 @@
+import useThemeStore, { type Theme } from "../stores/useThemeStore";
+
 type Education = {
   university: string;
   timeStart: string;
@@ -7,12 +9,6 @@ type Education = {
   location: string;
 };
 
-type Theme = {
-  border: string;
-  accent: string;
-  text: string;
-};
-
 interface EducationBoxProps {
   education: Education;
   theme: Theme;
@@ -20,15 +16,15 @@ interface EducationBoxProps {
 
 const EducationBox = (
   { education, theme }: EducationBoxProps,
-  isLightTheme = true
 ) => {
+  const {themeName} = useThemeStore()
   const { university, timeStart, timeEnd, degreeName, achievement, location } =
     education;
 
   return (
     <div
       className={`p-4 ${theme.border} border ${
-        isLightTheme ? "bg-white/30" : "bg-black/30"
+        themeName === 'light' ? "bg-white/30" : "bg-black/30"
       }`}
     >
       <div className={`flex justify-between tracking-wide ${theme.accent}`}>
