@@ -18,12 +18,19 @@ interface EducationBoxProps {
   theme: Theme;
 }
 
-const EducationBox = ({ education, theme }: EducationBoxProps) => {
+const EducationBox = (
+  { education, theme }: EducationBoxProps,
+  isLightTheme = true
+) => {
   const { university, timeStart, timeEnd, degreeName, achievement, location } =
     education;
 
   return (
-    <div className={`p-4 ${theme.border} border bg-black/30`}>
+    <div
+      className={`p-4 ${theme.border} border ${
+        isLightTheme ? "bg-white/30" : "bg-black/30"
+      }`}
+    >
       <div className={`flex justify-between tracking-wide ${theme.accent}`}>
         <div className={`font-bold `}>{`${university}`}</div>
         <div className={`hidden text-xs ${theme.text} md:block`}>

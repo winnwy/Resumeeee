@@ -22,7 +22,10 @@ interface ProjectBoxProps {
   theme: Theme;
 }
 
-const ProjectBox = ({ project, theme }: ProjectBoxProps) => {
+const ProjectBox = (
+  { project, theme }: ProjectBoxProps,
+  isLightTheme = true
+) => {
   const { title, timeStart, timeEnd, stack, items, href } = project;
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -31,12 +34,13 @@ const ProjectBox = ({ project, theme }: ProjectBoxProps) => {
   };
 
   return (
-    <div className={`p-4 ${theme.border} border bg-black/30`}>
+    <div
+      className={`p-4 ${theme.border} border ${
+        isLightTheme ? "bg-white/30" : "bg-black/30"
+      }`}
+    >
       <div className={`flex justify-between tracking-wide ${theme.accent}`}>
-        <RawLink
-          href={href}
-          className={`${theme.hover} font-bold font-mono`}
-        >
+        <RawLink href={href} className={`${theme.hover} font-bold font-mono`}>
           {title}
         </RawLink>
 

@@ -3,11 +3,14 @@ import { type ReactNode } from "react";
 interface PixelBoxProps {
   children: ReactNode;
   className?: string;
+  isLightTheme?: boolean;
 }
 
-const PixelBox = ({ children, className = "" }: PixelBoxProps) => (
+const PixelBox = ({ children, className = "", isLightTheme = true }: PixelBoxProps) => (
   <div
-    className={`border-2 p-4 mb-4 bg-black/30 backdrop-blur-sm shadow-lg ${className}`}
+    className={`border-2 p-4 mb-4 backdrop-blur-sm shadow-lg ${
+      isLightTheme ? "bg-white/30" : "bg-black/30"
+    } ${className}`}
     style={{
       imageRendering: "pixelated",
       clipPath:
@@ -17,4 +20,5 @@ const PixelBox = ({ children, className = "" }: PixelBoxProps) => (
     {children}
   </div>
 );
+
 export default PixelBox;

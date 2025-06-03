@@ -19,11 +19,18 @@ interface ExperienceBoxProps {
   theme: Theme;
 }
 
-const ExperienceBox = ({ experience, theme }: ExperienceBoxProps) => {
+const ExperienceBox = (
+  { experience, theme }: ExperienceBoxProps,
+  isLightTheme = true
+) => {
   const { title, timeStart, timeEnd, company, items, location } = experience;
 
   return (
-    <div className={`p-4 ${theme.border} border bg-black/30`}>
+    <div
+      className={`p-4 ${theme.border} border ${
+        isLightTheme ? "bg-white/30" : "bg-black/30"
+      }`}
+    >
       <div className={`flex justify-between tracking-wide ${theme.accent}`}>
         <div className={`font-bold `}>{title}</div>
         <div className={`hidden text-xs ${theme.text} md:block`}>

@@ -8,16 +8,37 @@ import ExperienceBox from "./components/ExperienceBox";
 import EducationBox from "./components/EducationBox";
 import Footer from "./components/Footer";
 
+// const themes = {
+//   vaporwave: {
+//     name: "Vaporwave",
+//     bg: "bg-purple-900",
+//     text: "text-pink-300",
+//     accent: "text-cyan-300",
+//     border: "border-pink-400",
+//     // section: "border-b-2 border-cyan-400",
+//     hover: "hover:text-cyan-200",
+//     shadow: "shadow-pink-400/50",
+//   },
+// };
+
 const themes = {
-  vaporwave: {
-    name: "Vaporwave",
-    bg: "bg-purple-900",
-    text: "text-pink-300",
-    accent: "text-cyan-300",
-    border: "border-pink-400",
-    // section: "border-b-2 border-cyan-400",
-    hover: "hover:text-cyan-200",
-    shadow: "shadow-pink-400/50",
+  dark: {
+    name: "Cozy Night",
+    bg: "bg-indigo-950",
+    text: "text-pink-200",
+    accent: "text-yellow-300",
+    border: "border-pink-300",
+    hover: "hover:text-yellow-200",
+    shadow: "shadow-pink-400/30",
+  },
+  light: {
+    name: "Pastel Dream",
+    bg: "bg-pink-50",
+    text: "text-purple-700",
+    accent: "text-rose-500",
+    border: "border-purple-200",
+    hover: "hover:text-rose-400",
+    shadow: "shadow-purple-200/40",
   },
 };
 
@@ -127,28 +148,29 @@ const eduZJNU = {
 }
 
 const HomePage = () => {
+  const currentTheme = themes.light;
   return (
-    <div className={`min-h-screen p-10 ${themes.vaporwave.bg}`}>
-      <main className="max-w-3xl m-auto flex flex-col items-center">
+        <div className={`min-h-screen p-10 ${currentTheme.bg}`}>
+    <main className="max-w-3xl m-auto flex flex-col items-center">
         {/* Header */}
         <PixelBox
-          className={`w-full ${themes.vaporwave.border} ${themes.vaporwave.shadow}`}
+          className={`w-full ${currentTheme.border} ${currentTheme.shadow}`}
         >
           <h1
-            className={`${themes.vaporwave.accent} text-4xl font-bold text-center font-mono tracking-wider`}
+            className={`${currentTheme.accent} text-4xl font-bold text-center font-mono tracking-wider`}
           >
             WENYING ZHOU
           </h1>
           <h2
-            className={`${themes.vaporwave.text} text-sm  text-center font-mono p-4 tracking-wide`}
+            className={`${currentTheme.text} text-sm  text-center font-mono p-4 tracking-wide`}
           >
             &gt; SOFTWARE DEVELOPER.EXE{" "}
-            <BlinkingCursor  theme={themes.vaporwave} />
+            <BlinkingCursor  theme={currentTheme} />
           </h2>
           <div className="flex justify-around">
             <RawLink
               href={"https://github.com/winnwy"}
-              className={`text-xs flex items-center gap-2 tracking-wide ${themes.vaporwave.accent} ${themes.vaporwave.hover}`}
+              className={`text-xs flex items-center gap-2 tracking-wide ${currentTheme.accent} ${currentTheme.hover}`}
             >
               <SiGithub className="size-4" />
               GITHUB.COM
@@ -158,15 +180,15 @@ const HomePage = () => {
 
         {/* Summary */}
         <PixelBox
-          className={`w-full ${themes.vaporwave.border} ${themes.vaporwave.shadow}`}
+          className={`w-full ${currentTheme.border} ${currentTheme.shadow}`}
         >
           <h2
-            className={`${themes.vaporwave.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
+            className={`${currentTheme.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
             &gt; SYSTEM_SUMMARY.TXT
           </h2>
           <p
-            className={`text-sm flex font-mono tracking-wide ${themes.vaporwave.text}`}
+            className={`text-sm flex font-mono tracking-wide ${currentTheme.text}`}
           >
             {summaryText}
           </p>
@@ -174,78 +196,78 @@ const HomePage = () => {
 
         {/* Skills */}
         <PixelBox
-          className={`w-full ${themes.vaporwave.border} ${themes.vaporwave.shadow}`}
+          className={`w-full ${currentTheme.border} ${currentTheme.shadow}`}
         >
           <h2
-            className={`${themes.vaporwave.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
+            className={`${currentTheme.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
             &gt; SKILLS.DB
           </h2>
           <SkillBox
             title="[LANGUAGES]"
             items={skills.languages}
-            theme={themes.vaporwave}
+            theme={currentTheme}
           />
           <SkillBox
             title="[FRAMEWORKS]"
             items={skills.frameworks}
-            theme={themes.vaporwave}
+            theme={currentTheme}
           />
           <SkillBox
             title="[TOOLS]"
             items={skills.tools}
-            theme={themes.vaporwave}
+            theme={currentTheme}
           />
         </PixelBox>
 
         {/* Projects */}
         <PixelBox
-          className={`w-full ${themes.vaporwave.border} ${themes.vaporwave.shadow}`}
+          className={`w-full ${currentTheme.border} ${currentTheme.shadow}`}
         >
           <h2
-            className={`${themes.vaporwave.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
+            className={`${currentTheme.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
             &gt; PROJECTS.EXE
           </h2>
           <div className="space-y-6 font-mono text-sm">
-            <ProjectBox theme={themes.vaporwave} project={projectBlotz} />
-            <ProjectBox theme={themes.vaporwave} project={projectHopDot} />
-            <ProjectBox theme={themes.vaporwave} project={projectTriolingo} />
+            <ProjectBox theme={currentTheme} project={projectBlotz} />
+            <ProjectBox theme={currentTheme} project={projectHopDot} />
+            <ProjectBox theme={currentTheme} project={projectTriolingo} />
           </div>
         </PixelBox>
 
         {/* Experience */}
         <PixelBox
-          className={`w-full ${themes.vaporwave.border} ${themes.vaporwave.shadow}`}
+          className={`w-full ${currentTheme.border} ${currentTheme.shadow}`}
         >
           <h2
-            className={`${themes.vaporwave.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
+            className={`${currentTheme.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
             &gt; EXPERIENCE.SYS
           </h2>
           <div className="space-y-6 font-mono text-sm">
-            <ExperienceBox theme={themes.vaporwave} experience={expCodeCamp} />
-            <ExperienceBox theme={themes.vaporwave} experience={expBreak} />
+            <ExperienceBox theme={currentTheme} experience={expCodeCamp} />
+            <ExperienceBox theme={currentTheme} experience={expBreak} />
           </div>
         </PixelBox>
 
         {/* Education */}
         <PixelBox
-          className={`w-full ${themes.vaporwave.border} ${themes.vaporwave.shadow}`}
+          className={`w-full ${currentTheme.border} ${currentTheme.shadow}`}
         >
           <h2
-            className={`${themes.vaporwave.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
+            className={`${currentTheme.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
           >
             &gt; EDUCATION.LOG
           </h2>
           <div className="space-y-6 font-mono text-sm">
-            <EducationBox theme={themes.vaporwave} education={eduUNSW}/>
-            <EducationBox theme={themes.vaporwave} education={eduZJNU}/>
+            <EducationBox theme={currentTheme} education={eduUNSW}/>
+            <EducationBox theme={currentTheme} education={eduZJNU}/>
           </div>
         </PixelBox>
 
         {/* Footer */}
-        <Footer theme={themes.vaporwave}/>
+        <Footer theme={currentTheme}/>
       </main>
     </div>
   );
