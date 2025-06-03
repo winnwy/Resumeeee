@@ -6,6 +6,7 @@ import SkillBox from "./components/SkilBox";
 import ProjectBox from "./components/ProjectBox";
 import ExperienceBox from "./components/ExperienceBox";
 import EducationBox from "./components/EducationBox";
+import Footer from "./components/Footer";
 
 const themes = {
   vaporwave: {
@@ -52,9 +53,9 @@ const projectBlotz = {
   title: "BLOTZ_TASK_APP",
   timeStart: "2025.04",
   timeEnd: "PRESENT",
-  stack: "Next.js, .NET 8, SQL Server",
+  stack: "Next.js, AZURE OpenAI, .NET 8, SQL Server",
   items: [
-    "Blotz is an intelligent, efficient, and scalable To-Do List application designed to enhance productivity, streamline task management, and support both individual and team workflows. Whether for personal planning, team collaboration, or software development task management, Blotz provides a seamless experience that helps users stay organized and focused.",
+    "BlotzTaskApp is a smart To-Do app that uses AI to make managing tasks easier and more intuitive. It can break down big goals into smaller steps for you, turn your voice into text tasks on the fly, and even suggest new tasks based on what you’re working on. Designed to help you stay organized without the hassle, Blotz feels like having a personal assistant that helps you get things done—whether you’re planning solo or working with a team.",
   ],
   href: "https://blotz-task-app.vercel.app/",
 };
@@ -142,7 +143,7 @@ const HomePage = () => {
             className={`${themes.vaporwave.text} text-sm  text-center font-mono p-4 tracking-wide`}
           >
             &gt; SOFTWARE DEVELOPER.EXE{" "}
-            <BlinkingCursor currentStyle={themes.vaporwave} />
+            <BlinkingCursor  theme={themes.vaporwave} />
           </h2>
           <div className="flex justify-around">
             <RawLink
@@ -244,6 +245,7 @@ const HomePage = () => {
         </PixelBox>
 
         {/* Footer */}
+        <Footer theme={themes.vaporwave}/>
       </main>
     </div>
   );

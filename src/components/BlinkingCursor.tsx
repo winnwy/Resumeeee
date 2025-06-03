@@ -1,12 +1,13 @@
-interface BlinkingCursorProps {
-  currentStyle: {
-    accent: string;
-  };
+type Theme = {
+  accent: string;
 };
+interface ThemeProps {
+  theme: Theme;
+}
 
-const BlinkingCursor = ({ currentStyle }: BlinkingCursorProps) => {
+const BlinkingCursor = ({ theme }:ThemeProps) => {
   return (
-      <span className={`inline-block animate-pulse font-mono ${currentStyle.accent}`}>█</span>
+      <span className={`inline-block animate-pulse font-mono ${theme.accent}`}>█</span>
   );
 };
 
