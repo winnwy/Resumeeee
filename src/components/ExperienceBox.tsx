@@ -4,6 +4,7 @@ type Experience = {
   timeEnd: string;
   company: string;
   items: string[];
+  location: string,
 };
 
 type Theme = {
@@ -19,7 +20,7 @@ interface ExperienceBoxProps {
 }
 
 const ProjectBox = ({ experience, theme }: ExperienceBoxProps) => {
-  const { title, timeStart, timeEnd, company, items } = experience;
+  const { title, timeStart, timeEnd, company, items, location } = experience;
 
   return (
     <div className={`p-4 ${theme.border} border bg-black/30`}>
@@ -29,8 +30,10 @@ const ProjectBox = ({ experience, theme }: ExperienceBoxProps) => {
           {timeStart} - {timeEnd}
         </div>
       </div>
-      <div className={`${theme.text} text-xs`}>{company}</div>
-
+      <div className={`flex justify-between tracking-wide text-xs ${theme.text} `}>
+      <span>{company}</span>
+      <span>{location}</span>
+    </div>
       {items.map((item, idx) => (
         <div key={idx} className={`${theme.text} text-sm pt-2`}>
           &gt; {item}

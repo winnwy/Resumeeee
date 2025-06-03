@@ -89,7 +89,8 @@ const expBreak = {
     "Collaborate with dev team to revamp UI using Figma",
     "Contribute to frontend redevelopment using React",
     "Participate in brainstorming and wireframing sessions"
-    ]
+    ],
+  location: "Remote",
 }
 
 const expCodeCamp = {
@@ -101,7 +102,8 @@ const expCodeCamp = {
     "Deliver Code Camp programs to a class of up to 25 students",
     "Support students through project-based learning, debugging, and live feedback",
     "Collaborate with co-instructors to adapt lesson plans for diverse learning needs",
-  ]
+  ],
+  location: "Sydney, NSW"
 }
 
 const HomePage = () => {
@@ -206,6 +208,21 @@ const HomePage = () => {
             <ExperienceBox theme={themes.vaporwave} experience={expBreak} />
           </div>
         </PixelBox>
+
+        {/* Education */}
+                <PixelBox
+          className={`w-full ${themes.vaporwave.border} ${themes.vaporwave.shadow}`}
+        >
+          <h2
+            className={`${themes.vaporwave.accent} text-xl font-bold font-mono pb-4 tracking-wider`}
+          >
+            &gt; EDUCATION.LOG
+          </h2>
+
+        </PixelBox>
+
+        {/* Footer */}
+
       </main>
     </div>
   );
