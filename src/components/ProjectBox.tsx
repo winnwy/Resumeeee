@@ -5,6 +5,7 @@ import useThemeStore from "../stores/useThemeStore";
 
 type Project = {
   title: string;
+  role: string;
   timeStart: string;
   timeEnd: string;
   stack: string;
@@ -17,12 +18,10 @@ interface ProjectBoxProps {
   theme: Theme;
 }
 
-const ProjectBox = (
-  { project, theme }: ProjectBoxProps,
-) => {
-  const { title, timeStart, timeEnd, stack, items, href } = project;
+const ProjectBox = ({ project, theme }: ProjectBoxProps) => {
+  const { title, role, timeStart, timeEnd, stack, items, href } = project;
   const [isExpanded, setIsExpanded] = useState(false);
-  const {themeName} = useThemeStore()
+  const { themeName } = useThemeStore();
 
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded);
@@ -31,7 +30,7 @@ const ProjectBox = (
   return (
     <div
       className={`p-4 ${theme.border} border ${
-        themeName === 'light' ? "bg-white/30" : "bg-black/30"
+        themeName === "light" ? "bg-white/30" : "bg-black/30"
       }`}
     >
       <div className={`flex justify-between tracking-wide ${theme.accent}`}>
@@ -42,6 +41,9 @@ const ProjectBox = (
         <div className={` ${theme.text} hidden text-xs md:block`}>
           {timeStart} - {timeEnd}
         </div>
+      </div>
+      <div className={`${theme.text} text-xs pb-1`}>
+        {role}
       </div>
       <div className={`${theme.text} text-xs`}>
         {"[STACK]"} {stack}

@@ -40,6 +40,7 @@ const skills = {
 
 const projectBlotz = {
   title: "BLOTZ_TASK_APP",
+  role: "Team Project • Tech Lead",
   timeStart: "2025.04",
   timeEnd: "PRESENT",
   stack: "Next.js, AZURE OpenAI, .NET 8, SQL Server",
@@ -51,6 +52,7 @@ const projectBlotz = {
 
 const projectHopDot = {
   title: "HOPDOT",
+  role: "Team Project • Full Stack Developer",
   timeStart: "2025.05",
   timeEnd: "PRESENT",
   stack: "Next.js, Python",
@@ -62,6 +64,7 @@ const projectHopDot = {
 
 const projectTriolingo = {
   title: "TRIOLINGO",
+  role: "Personal Project • Full Stack Developer",
   timeStart: "2025.02",
   timeEnd: "2025.03",
   stack: "Next.js, PostgreSQL",
